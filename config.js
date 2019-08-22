@@ -17,7 +17,7 @@ module.exports = {
     // Your bot's user token. If you don't know what that is, go here:
     // https://discordapp.com/developers/applications/me
     // Then create a new application and grab your token.
-    token: "MjUzMTEwNjgwMzYwNTgzMTY5.CzWAWw.DTBgOxa4sQIc68fy7btU09kFoEA", // Test token (Z-Bot (Dev))
+    token: "NjEzNjgyODk0Nzk1NDQwMTI4.XV0ezg.xxxxxxxxxxxxxxxxxxxxxx", // Test token (Z-Bot (Dev))
 
     encryptionKey: '4zcMONp61gpVDcuckG0u',
 
@@ -55,6 +55,15 @@ module.exports = {
             log: "bot-log" // to log all your technical bot messages.
         },
 
+        watcher: [
+            {
+                channel: 'bot-kill',
+                directory: 'logs/', // Can also be an absolute path (eg: "C:/Users/server/logs/" )
+                file: 'KillFeed_*.log', // Supports wilcard (*), this will check all the files with the given filter and takes the last modified one to monitor
+                // This is done so there can be log rotations in the same folder.
+            }
+        ],
+
         bercon: {
             enabled: true,
             colors: true,
@@ -82,7 +91,8 @@ module.exports = {
                         admin: 'bot-text',
                         default: 'bot-text',
                         commands: 'bot-text',
-                        joins: 'bot-text'
+                        joins: 'bot-text',
+                        global: 'bot-text'
                     },
                     showChannels: {
                         side: true,
@@ -92,7 +102,8 @@ module.exports = {
                         admin: true,
                         default: true,
                         commands: true,
-                        joins: true
+                        joins: true,
+                        global: true
                     },
                     jobs: [
                         {
